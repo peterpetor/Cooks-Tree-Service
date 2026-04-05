@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooks Tree Service LLC | Premium Tree Care in Charlotte & Sarasota</title>
+    <meta name="description" content="Family owned and operated tree service servicing Charlotte and Sarasota county. Licensed, insured, and bonded. Call for a free consultation.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#07150d',     // Deepest forest green
+                            primary: '#0c2616',  // Rich dark green
+                            light: '#144024',    // Lighter green
+                            gold: '#d4af37',     // Luxury gold
+                            goldhover: '#f1cb50' // Bright gold for hover
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for extra luxury feel */
+        .glass-nav {
+            background: rgba(7, 21, 13, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #b5952f 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #f1cb50 0%, #d4af37 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.4);
+        }
+        .review-card {
+            background: linear-gradient(180deg, #0c2616 0%, #07150d 100%);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: transform 0.3s ease;
+        }
+        .review-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-5px);
+        }
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(7, 21, 13, 0.95) 0%, rgba(7, 21, 13, 0.7) 50%, rgba(7, 21, 13, 0.4) 100%);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-100 font-sans antialiased selection:bg-brand-gold selection:text-brand-dark">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <i class="fa-solid fa-tree text-brand-gold text-3xl"></i>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-2xl tracking-wider text-white">COOKS</span>
+                        <span class="text-[10px] tracking-[0.3em] text-brand-gold uppercase font-semibold">Tree Service LLC</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-sm font-medium text-gray-300 hover:text-brand-gold transition-colors">Our Services</a>
+                    <a href="#reviews" class="text-sm font-medium text-gray-300 hover:text-brand-gold transition-colors">Testimonials</a>
+                    <a href="#about" class="text-sm font-medium text-gray-300 hover:text-brand-gold transition-colors">Why Us</a>
+                    
+                    <a href="tel:9412643179" class="group flex items-center gap-2">
+                        <div class="w-10 h-10 rounded-full border border-brand-gold flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-dark transition-all">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] text-gray-400 uppercase tracking-wider">24/7 Emergency</span>
+                            <span class="font-bold text-white group-hover:text-brand-gold transition-colors">941-264-3179</span>
+                        </div>
+                    </a>
+                    
+                    <a href="#contact" class="btn-gold text-brand-dark px-6 py-3 rounded-sm font-semibold text-sm tracking-wide uppercase">
+                        Free Consultation
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-brand-gold focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-primary border-t border-brand-light">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-white hover:text-brand-gold">Services</a>
+                <a href="#reviews" class="block px-3 py-2 text-base font-medium text-white hover:text-brand-gold">Testimonials</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-white hover:text-brand-gold">Why Us</a>
+                <a href="tel:9412643179" class="block px-3 py-2 text-base font-medium text-brand-gold"><i class="fa-solid fa-phone mr-2"></i> 941-264-3179</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?q=80&w=2071&auto=format&fit=crop" alt="Majestic Tree Canopy" class="w-full h-full object-cover object-center" onerror="this.src='https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?q=80&w=2000&auto=format&fit=crop'">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-gold/30 bg-brand-dark/50 backdrop-blur-sm mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+                    <span class="text-xs font-medium text-brand-gold tracking-widest uppercase">Family Owned & Operated</span>
+                </div>
+                
+                <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 text-glow">
+                    Elite Tree Care for <br />
+                    <span class="text-brand-gold italic font-light">Impeccable Properties.</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl font-light leading-relaxed">
+                    Licensed, insured, and bonded tree professionals servicing Charlotte and Sarasota counties. We show up when we say we will, and we do the job right.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="btn-gold text-brand-dark px-8 py-4 rounded-sm font-bold text-sm tracking-widest uppercase text-center flex items-center justify-center gap-2">
+                        Book Free Consultation <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="tel:9412643179" class="px-8 py-4 rounded-sm font-bold text-sm tracking-widest uppercase text-center flex items-center justify-center gap-2 border border-white/20 hover:border-brand-gold hover:text-brand-gold transition-colors bg-white/5 backdrop-blur-sm">
+                        <i class="fa-solid fa-phone-volume"></i> 941-264-3179
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/10">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-certificate text-brand-gold text-xl"></i>
+                        <span class="text-sm font-medium text-gray-300 uppercase tracking-wider">Licensed</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-shield-halved text-brand-gold text-xl"></i>
+                        <span class="text-sm font-medium text-gray-300 uppercase tracking-wider">Insured</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-file-contract text-brand-gold text-xl"></i>
+                        <span class="text-sm font-medium text-gray-300 uppercase tracking-wider">Bonded</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-star text-brand-gold text-xl"></i>
+                        <span class="text-sm font-medium text-gray-300 uppercase tracking-wider">5-Star Rated</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- The Cooks Difference (About/Why Us) -->
+    <section id="about" class="py-24 bg-brand-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 border-2 border-brand-gold/20 rounded-sm transform translate-x-4 translate-y-4"></div>
+                    <img src="https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=1000&auto=format&fit=crop" alt="Professional Arborist Working" class="relative z-10 rounded-sm shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                    <div class="absolute -bottom-8 -right-8 bg-brand-dark p-6 border border-brand-gold/30 z-20 shadow-xl hidden md:block">
+                        <p class="font-serif text-4xl text-brand-gold font-bold mb-1">100%</p>
+                        <p class="text-xs tracking-widest uppercase text-gray-400">Satisfaction<br>Guarantee</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-brand-gold text-sm font-bold tracking-[0.2em] uppercase mb-3">The Cooks Difference</h2>
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">We do what we say we're gonna do.</h3>
+                    <p class="text-gray-400 mb-6 font-light leading-relaxed text-lg">
+                        In an industry where reliability is rare, we pride ourselves on being the exception. As a family-owned and operated business, our reputation is tied to every branch we cut and every property we service.
+                    </p>
+                    
+                    <ul class="space-y-5 mt-8">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-brand-gold text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-lg">Punctual & Reliable</h4>
+                                <p class="text-gray-400 text-sm mt-1">We show up exactly when we say we will. No waiting, no excuses.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-bolt text-brand-gold text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-lg">Emergency Responsiveness</h4>
+                                <p class="text-gray-400 text-sm mt-1">Whether it's Christmas Eve or the middle of the night, we are here for your tree emergencies.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-scale-balanced text-brand-gold text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-lg">Fair & Transparent Pricing</h4>
+                                <p class="text-gray-400 text-sm mt-1">Premium service shouldn't mean predatory pricing. We offer fair, upfront quotes.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-gold text-sm font-bold tracking-[0.2em] uppercase mb-3">Our Expertise</h2>
+                <h3 class="font-serif text-4xl md:text-5xl font-bold text-white">Comprehensive Tree Care</h3>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mt-6 opacity-50"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="group relative overflow-hidden bg-brand-primary cursor-pointer h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?auto=format&fit=crop&w=800&q=80" alt="Tree Removal" class="w-full h-full object-cover opacity-40 group-hover:opacity-20 transition-opacity duration-500">
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <i class="fa-solid fa-tree text-4xl text-brand-gold mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"></i>
+                        <h4 class="font-serif text-2xl font-bold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Precision Tree Removal</h4>
+                        <div class="h-0 overflow-hidden group-hover:h-24 transition-all duration-500 ease-in-out">
+                            <p class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                Safe, calculated removal of hazardous, dead, or unwanted trees—from towering pines to complex removals near structures.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group relative overflow-hidden bg-brand-primary cursor-pointer h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1612200167265-a68d1519332f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHRvcm5hZG98ZW58MHx8MHx8fDA%3D" alt="Emergency Service" class="w-full h-full object-cover opacity-40 group-hover:opacity-20 transition-opacity duration-500">
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end border-b-4 border-brand-gold">
+                        <i class="fa-solid fa-truck-fast text-4xl text-brand-gold mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"></i>
+                        <h4 class="font-serif text-2xl font-bold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">24/7 Emergency Response</h4>
+                        <div class="h-0 overflow-hidden group-hover:h-24 transition-all duration-500 ease-in-out">
+                            <p class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                Storm damage doesn't wait for business hours. We are available immediately to secure your property and remove dangerous fallen trees.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group relative overflow-hidden bg-brand-primary cursor-pointer h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80" alt="Pruning and Maintenance" class="w-full h-full object-cover opacity-40 group-hover:opacity-20 transition-opacity duration-500">
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <i class="fa-solid fa-leaf text-4xl text-brand-gold mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"></i>
+                        <h4 class="font-serif text-2xl font-bold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Pruning & Maintenance</h4>
+                        <div class="h-0 overflow-hidden group-hover:h-24 transition-all duration-500 ease-in-out">
+                            <p class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                Enhance the beauty, health, and structural integrity of your trees with our professional trimming and canopy management.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (Social Proof) -->
+    <section id="reviews" class="py-24 bg-brand-primary relative overflow-hidden">
+        <!-- Decorative background element -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-gold rounded-full mix-blend-overlay filter blur-[120px] opacity-10 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-[120px] opacity-5 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <h2 class="text-brand-gold text-sm font-bold tracking-[0.2em] uppercase mb-3">Client Experiences</h2>
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold text-white">Don't just take our word for it.</h3>
+                </div>
+                <div class="flex gap-2 text-brand-gold text-2xl">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Review 1 -->
+                <div class="review-card p-8 rounded-sm flex flex-col justify-between h-full">
+                    <div>
+                        <i class="fa-solid fa-quote-left text-brand-gold/40 text-3xl mb-4"></i>
+                        <p class="text-gray-300 italic mb-6 text-sm leading-relaxed">
+                            "Shows up when he says he will, does what he says he's gonna do, and does it well."
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="text-white font-bold font-serif">Jason Stone</h5>
+                        <p class="text-brand-gold text-xs uppercase tracking-wider mt-1">Verified Client</p>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card p-8 rounded-sm flex flex-col justify-between h-full">
+                    <div>
+                        <i class="fa-solid fa-quote-left text-brand-gold/40 text-3xl mb-4"></i>
+                        <p class="text-gray-300 italic mb-6 text-sm leading-relaxed">
+                            "The service was amazing! Owner came out on Christmas Eve to do a quick job for me in an emergency and made me feel like he was happy to do it too! The work was done right, and I couldn't be happier!!! You won't regret calling them!"
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="text-white font-bold font-serif">Krystal Alvarez</h5>
+                        <p class="text-brand-gold text-xs uppercase tracking-wider mt-1">Verified Client</p>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card p-8 rounded-sm flex flex-col justify-between h-full">
+                    <div>
+                        <i class="fa-solid fa-quote-left text-brand-gold/40 text-3xl mb-4"></i>
+                        <p class="text-gray-300 italic mb-6 text-sm leading-relaxed">
+                            "Easy to work with, fair prices, owner is friendly and professional. They will be taking down 3 tall pines for me."
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="text-white font-bold font-serif">Christine Ellis</h5>
+                        <p class="text-brand-gold text-xs uppercase tracking-wider mt-1">Verified Client</p>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card p-8 rounded-sm flex flex-col justify-between h-full">
+                    <div>
+                        <i class="fa-solid fa-quote-left text-brand-gold/40 text-3xl mb-4"></i>
+                        <p class="text-gray-300 italic mb-6 text-sm leading-relaxed">
+                            "Quick, polite and great work! We highly recommend Cooks Tree Service and will definitely be using them again in the future. Thanks guys:)"
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="text-white font-bold font-serif">Robyn Milliken-Setser</h5>
+                        <p class="text-brand-gold text-xs uppercase tracking-wider mt-1">Verified Client</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="contact" class="relative py-24 bg-brand-dark border-t border-b border-brand-gold/20">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23d4af37\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Ready to upgrade your property's safety and aesthetics?</h2>
+            <p class="text-xl text-gray-300 mb-10 font-light">
+                Serving Charlotte County, Sarasota County, and surrounding areas. Get your free, no-obligation consultation today.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="tel:9412643179" class="btn-gold text-brand-dark px-10 py-5 rounded-sm font-bold text-lg tracking-widest uppercase flex items-center gap-3 w-full sm:w-auto justify-center">
+                    <i class="fa-solid fa-phone"></i> Call 941-264-3179
+                </a>
+                <a href="mailto:mikecook421@icloud.com" class="px-10 py-5 rounded-sm font-bold text-lg tracking-widest uppercase text-white border border-white/30 hover:border-brand-gold hover:text-brand-gold transition-colors flex items-center gap-3 w-full sm:w-auto justify-center bg-white/5 backdrop-blur-sm">
+                    <i class="fa-solid fa-envelope"></i> Email Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black pt-16 pb-8 border-t-[6px] border-brand-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-1 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-6">
+                        <i class="fa-solid fa-tree text-brand-gold text-2xl"></i>
+                        <span class="font-serif font-bold text-xl tracking-wider text-white">COOKS</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Premium, family-owned tree care services dedicated to safety, reliability, and unparalleled customer satisfaction.
+                    </p>
+                    <div class="flex justify-center md:justify-start gap-4">
+                        <a href="https://www.facebook.com/cookslawnandtreeservice/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-brand-primary flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-black transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="text-center md:text-left">
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li>
+                            <a href="tel:9412643179" class="hover:text-brand-gold transition-colors flex items-center justify-center md:justify-start gap-3">
+                                <i class="fa-solid fa-phone text-brand-gold w-4"></i> 941-264-3179
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:mikecook421@icloud.com" class="hover:text-brand-gold transition-colors flex items-center justify-center md:justify-start gap-3">
+                                <i class="fa-solid fa-envelope text-brand-gold w-4"></i> mikecook421@icloud.com
+                            </a>
+                        </li>
+                        <li class="flex items-start justify-center md:justify-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-gold w-4 mt-1"></i>
+                            <span>Port Charlotte, FL<br>United States</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service Areas -->
+                <div class="text-center md:text-left">
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Service Areas</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li>Charlotte County, FL</li>
+                        <li>Sarasota County, FL</li>
+                        <li>Port Charlotte</li>
+                        <li>Surrounding Areas</li>
+                    </ul>
+                </div>
+
+                <!-- Credentials -->
+                <div class="text-center md:text-left">
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Our Credentials</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa-solid fa-check text-brand-gold"></i> Fully Licensed
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa-solid fa-check text-brand-gold"></i> Fully Insured
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa-solid fa-check text-brand-gold"></i> Bonded
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa-solid fa-check text-brand-gold"></i> Family Owned & Operated
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 uppercase tracking-widest">
+                <p>&copy; 2024 Cooks Tree Service LLC. All Rights Reserved.</p>
+                <p>Designed for Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.style.background = 'rgba(7, 21, 13, 0.98)';
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.style.background = 'rgba(7, 21, 13, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
